@@ -136,7 +136,7 @@ a:hover {
             <h2>2257401070</h2> 
             <p>Haris Munandar</p> 
             <p>Kelas: MI22A</p> 
-            <p>Kontribusi yang saya lakukan adalah: Mendesain halaman ini, mengintegrasikan CSS dan HTML untuk membuat layout yang responsif.</p>
+            <p>Kontribusi yang saya lakukan adalah: Mendesain halaman ini, mengintegrasikan CSS dan HTML untuk membuat layout yang responsif dan interaktif.</p>
             <a href="https://github.com/haris753">Github saya</a>
         </section>
 
