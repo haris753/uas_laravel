@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-</head>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,11 +65,19 @@
             font-size: 2em;
             color: #333;
         }
+
+        /* Tambahkan CSS untuk membuat teks 'Selamat datang' tebal */
+        h2 {
+            font-weight: bold; /* Membuat teks tebal */
+            font-size: 2rem; /* Menyesuaikan ukuran font */
+            color: #333; /* Warna teks */
+        }
     </style>
+</head>
 <body>
 
     <main>
-        <h2>Selamat datang, {{ $username }}</h2>
+        <h2>Selamat datang, {{ $username }}</h2> <!-- Teks 'Selamat datang' di sini -->
         <div class="stats">
             <div class="stat">
                 <h3>Total Produk</h3>

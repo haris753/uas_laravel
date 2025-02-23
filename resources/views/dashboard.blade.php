@@ -1,3 +1,6 @@
+@extends('template')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,7 +9,7 @@
     <title>JAWARA STORE</title>
 </head>
 <style>
-    body {
+  body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -38,7 +41,7 @@ nav a {
 .product-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* Menjaga produk rata tengah */
     padding: 20px;
 }
 
@@ -47,7 +50,7 @@ nav a {
     margin: 10px;
     padding: 15px;
     border: 1px solid #ccc;
-    width: 200px;
+    width: 250px; /* Ukuran tetap kotak produk */
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -59,14 +62,11 @@ nav a {
 }
 
 .product-image img {
-    height: 100px;
+    width: 100%; /* Memastikan gambar mengisi kontainer produk */
+    height: 150px; /* Set tinggi gambar */
+    object-fit: contain; /* Menjaga aspek rasio gambar */
     background: #eee;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
 }
 
 .view-button {
@@ -75,36 +75,34 @@ nav a {
     padding: 10px;
     text-decoration: none;
     border-radius: 5px;
+    display: inline-block; /* Agar tombol lebih teratur */
+    margin-top: 10px;
 }
 
 .view-button:hover {
     background: #0056b3;
 }
 
+@media (max-width: 1024px) {
+    .product {
+        width: 45%; /* Untuk layar sedang (tablet) */
+    }
+}
+
 @media (max-width: 768px) {
     .product {
-        width: 45%;
+        width: 48%; /* Agar lebih banyak produk di layar tablet */
     }
 }
 
 @media (max-width: 480px) {
     .product {
-        width: 90%;
+        width: 90%; /* Untuk layar kecil (smartphone) */
     }
 }
+
 </style>
 <body>
-    <header>
-        <h1>JAWARA STORE</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="produk">Produk</a></li>
-                <li><a href="tentangkami">Tentang</a></li>
-                <li><a href="login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <div class="product-container">
             <div class="product">
@@ -143,3 +141,4 @@ nav a {
     </main>
 </body>
 </html>
+@endsection

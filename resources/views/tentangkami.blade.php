@@ -133,29 +133,38 @@ a:hover {
     <div class="member-container">
         <section class="member">
             <div class="avatar" style="background-image: url('path_to_image.jpg');"></div> 
-            <h2>12345678</h2> 
-            <p>Nama Lengkap</p> 
-            <p>Kelas: A</p> 
+            <h2>2257401070</h2> 
+            <p>Haris Munandar</p> 
+            <p>Kelas: MI22A</p> 
             <p>Kontribusi yang saya lakukan adalah: Mendesain halaman ini, mengintegrasikan CSS dan HTML untuk membuat layout yang responsif.</p>
-            <a href="https://github.com/abcd">Github saya</a>
+            <a href="https://github.com/haris753">Github saya</a>
         </section>
 
         <section class="member">
             <div class="avatar" style="background-image: url('path_to_image.jpg');"></div> 
-            <h2>23456789</h2> 
-            <p>Nama Lengkap</p> 
-            <p>Kelas: B</p> 
-            <p>Kontribusi yang saya lakukan adalah: Membantu menulis konten, melakukan pengujian tampilan responsif.</p>
-            <a href="https://github.com/efgh">Github saya</a>
+            <h2>2257401086</h2> 
+            <p>Muhammad Ismi Musholini</p> 
+            <p>Kelas: MI22A</p> 
+            <p>Kontribusi yang saya lakukan adalah: Membuat halaman kategori.</p>
+            <a href="https://github.com/ismi1414">Github saya</a>
         </section>
 
         <section class="member">
             <div class="avatar" style="background-image: url('path_to_image.jpg');"></div>
-            <h2>34567890</h2>
-            <p>Nama Lengkap</p>
-            <p>Kelas: C</p>
-            <p>Kontribusi yang saya lakukan adalah: Mengimplementasikan fungsi interaktif dan menambahkan elemen multimedia.</p>
-            <a href="https://github.com/ijkl">Github saya</a>
+            <h2>2257401080</h2>
+            <p>Riski Fauzi</p>
+            <p>Kelas: MI22B</p>
+            <p>Kontribusi yang saya lakukan adalah: Membuat halaman dashboard.</p>
+            <a href="https://github.com/riski246">Github saya</a>
+        </section>
+
+        <section class="member">
+            <div class="avatar" style="background-image: url('path_to_image.jpg');"></div>
+            <h2>2257401071</h2>
+            <p>Cikal Prahara Nirwana</p>
+            <p>Kelas: MI22B</p>
+            <p>Kontribusi yang saya lakukan adalah: Membuat halaman tentang saya.</p>
+            <a href="https://github.com/cikalnirwana">Github saya</a>
         </section>
     </div>
 

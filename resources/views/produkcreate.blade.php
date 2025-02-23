@@ -1,3 +1,6 @@
+@extends('template')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -139,3 +142,4 @@ button[type="submit"]:hover {
     </div>
 </body>
 </html>
+@endsection

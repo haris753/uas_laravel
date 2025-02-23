@@ -31,7 +31,11 @@ Route::get('/dashbord', function(){
 
 Route::get('/produk', function(){
     return view('produk');
-})->middleware('auth');
+})->middleware('auth')->name('produk');
+
+Route::get('/kategori', function(){
+    return view('kategori');
+})->middleware('auth')->name('kategori');
 
 Route::get('/produk/detil', function(){
     return view('detil-produk');
@@ -57,7 +61,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::resource('produk', ProductController::class); 
-Route::get('produk/create', [ProductController::class, 'create'])->name('produkcreate');
+Route::get('produkcreate', [ProductController::class, 'create'])->name('produkcreate');
+Route::get('produk', [ProductController::class, 'index'])->name('produk');
 
-Route::post('kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
-Route::post('kategori', [KategoriController::class, 'store'])->name('kategori.store');
+Route::resource('kategori', KategoriController::class); 
+Route::get('createkategori', [KategoriController::class, 'create'])->name('createkategori');   
+Route::post('kategori', [KategoriController::class, 'store'])->name('kategori');

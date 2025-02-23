@@ -11,14 +11,14 @@ class KategoriController extends Controller
     // Menampilkan daftar kategori
     public function index()
     {
-        $kategoris = Kategori::all();
-        return view('kategori.index', compact('kategori'));
+        $kategori = Kategori::all();
+        return view('kategori', compact('kategori'));
     }
 
     // Menampilkan form untuk menambah kategori
     public function create()
     {
-        return view('kategori.create');
+        return view('createkategori');
     }
 
     // Menyimpan kategori baru

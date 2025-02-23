@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product; // Pastikan kita menggunakan model Product
-use App\Models\Kategori; // Asumsi ada model Kategori untuk relasi
+use App\Models\Product;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductController extends Controller
     // Menampilkan form tambah produk
     public function create()
     {
-        $kategories = Kategori::all(); // Mengambil semua kategori
+        $kategori = Kategori::all(); // Mengambil semua kategori
         return view('produkcreate', compact('kategori'));
     }
 
@@ -31,7 +32,7 @@ class ProductController extends Controller
             'nama_produk' => 'required|max:100',
             'deskripsi' => 'required|max:150',
             'gambar' => 'required|image|max:2048',
-            'kategori_id' => 'required|exists:kategoris,id'
+            'nama_kategori' => 'required|exists:nama_kategori'
         ]);
 
         // Upload gambar dan ambil path-nya
@@ -43,55 +44,25 @@ class ProductController extends Controller
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
             'gambar' => $path,
-            'kategori_id' => $request->kategori_id,
+            'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect()->route('produk');
-    }
-
-    // Menampilkan form edit produk
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
-        $kategories = Kategori::all(); // Mengambil semua kategori
-        return view('produk.edit', compact('product', 'kategori'));
-    }
-
-    // Mengupdate produk
-    public function update(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
-
-        // Validasi input
-        $request->validate([
-            'kode_produk' => 'required|max:10',
-            'nama_produk' => 'required|max:100',
-            'deskripsi' => 'required|max:150',
-            'gambar' => 'nullable|image|max:2048',
-            'kategori_id' => 'required|exists:kategoris,id'
-        ]);
-
-        // Periksa apakah ada gambar baru, jika ada, upload gambar
-        if ($request->hasFile('gambar')) {
-            $path = $request->file('gambar')->store('images', 'public');
-            $product->gambar = $path;  // Ganti gambar lama dengan yang baru
-        }
-
-        // Update produk
-        $product->update([
-            'kode_produk' => $request->kode_produk,
-            'nama_produk' => $request->nama_produk,
-            'deskripsi' => $request->deskripsi,
-            'kategori_id' => $request->kategori_id,
-        ]);
-
-        return redirect()->route('produk');
+        return redirect()->route('produk')->with('success', 'Produk berhasil ditambahkan!');
     }
 
     // Menghapus produk
     public function destroy($id)
     {
-        Product::destroy($id);
-        return redirect()->route('produk');
+        $product = Product::findOrFail($id);
+
+        // Hapus gambar terkait jika ada
+        if ($product->gambar) {
+            Storage::delete('public/' . $product->gambar); // Hapus gambar di storage
+        }
+
+        // Hapus produk
+        $product->delete();
+
+        return redirect()->route('produk')->with('success', 'Produk berhasil dihapus!');
     }
 }

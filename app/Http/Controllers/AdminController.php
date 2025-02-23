@@ -18,6 +18,6 @@ class AdminController extends Controller
         $username = Auth::user()->name;
 
         // Kirim data ke view
-        return view('admin.dashboard', compact('productCount', 'kategoriCount', 'userCount', 'username'));
+        return view('admin', compact('productCount', 'kategoriCount', 'userCount', 'username'));
     }
 }

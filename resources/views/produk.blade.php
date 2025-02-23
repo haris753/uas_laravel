@@ -152,9 +152,8 @@ img {
                         <td>{{ $product->nama_produk }}</td>
                         <td>{{ $product->deskripsi }}</td>
                         <td><img src="{{ asset('storage/' . $product->gambar) }}" alt="Gambar Produk" width="100"></td>
-                        <td>{{ $product->kategori->name }}</td>
+                        <td>{{ $product->kategori->nama_kategori }}</td>
                         <td>
-                            <a href="{{ route('produk.edit', $product->id) }}" class="edit">✏️</a>
                             <form action="{{ route('produk.destroy', $product->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
